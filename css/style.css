@@ -1,9 +1,54 @@
 body {
     margin: 0;
     font-size: 16px;
+    background-color: darkgray;
   }
   
-canvas {
-    background-image: url("");
-    background-size: cover;
-  }
+#healthbar {
+    width: 100vw;
+    height: 20vh;
+    background-color: chocolate;
+}
+
+#game {
+    width: 100vw;
+    height: 80vh;
+    background: url(../images/background-empty.jpg) no-repeat;
+    background-size: contain;
+    position: relative;
+}
+
+.cat {
+    background: url(../images/cathehe.png) no-repeat;
+    background-size: 100%;
+    position: fixed;
+    left: 2%;
+    bottom: 5%; 
+    height: 200px;
+    width: 200px;
+}
+
+.dog {
+    background: url(../images/doghehe.png) no-repeat;
+    background-size: 100%;
+    position: fixed;
+    right: 40%;
+    bottom: 2%;
+    height: 200px;
+    width: 200px;
+}
+
+#fishbone, #bone {
+    position: fixed;
+    bottom: -75px;
+    height: 75px;
+}
+
+#fisbhone {
+    left: 0;
+}
+
+#bone {
+    right: 0;
+}
+
