@@ -38,17 +38,17 @@ body {
     width: 200px;
 }
 
-#fishbone, #bone {
+#fishbone {
     position: fixed;
-    bottom: -75px;
+    bottom: -150px;
     height: 75px;
-}
-
-#fisbhone {
     left: 0;
-}
+} 
 
 #bone {
+    position: fixed;
+    bottom: -150px;
+    height: 75px;
     right: 0;
 }
 

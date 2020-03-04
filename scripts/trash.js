@@ -1,3 +1,6 @@
+// for clickTimeMouse I need to create a var now that takes the time when mouse is down and a var later that takes the time when mouse is up and substract those two. 
+// i then need to calculate with that var so that it is the right input for the parabola. (need to convert it in a number between -0.08 and -0.15) it is factor a
+
 let $game = document.querySelector("#game")
 let $bone = document.createElement("img");
 let $fishbone = document.createElement("img");
@@ -13,45 +16,64 @@ class Trash {
     }    
     clickTimeMouse(){
         let timeClicked = this.timeStop - this.timeBegin;
-        return timeClicked;
+        return timeClicked/100;
     }
-    timeClickedToCoefficient(timeClicked){
-        console.log(this.clickTimeMouse())
-    }
-    getTrashPosition(){
-         let timePassedInseconds  = (new Date() - this.timeStop)/100;
-         this.position.x = timePassedInseconds;
-         this.position.y = -0.09 *Math.pow(this.position.x,2) + 1.6*this.position.x -1; //the -0.09 needs to be replaced by a variable that calculates the ClickTimeMouse into a number (between -0.09 and -0.11)
-        return {
-            x: this.position.x,
-            y: this.position.y  
+    timeClickedToCoefficient(){
+        if(this.clickTimeMouse() > 10) {
+            return -0.13;
+        } else {
+            return -this.clickTimeMouse() * 0.07;
         }
     }
-
+    getTrashPosition(){
+        if(this.timeStop - this.timeBegin <= 5 ) return {x:0,y:0};
+        let timePassedInseconds  = (new Date() - this.timeStop)/100;
+        this.position.x = timePassedInseconds;
+        this.position.y = this.timeClickedToCoefficient() *Math.pow(this.position.x,2) + 1.6*this.position.x -1; //the -0.09 needs to be replaced by a variable that calculates the ClickTimeMouse into a number (between -0.09 and -0.11)
+       return {
+           x: this.position.x,
+           y: this.position.y  
+       }
+    }
 }
 
 class Bone extends Trash {
+    constructor(){
+        super()
+        this.renderTrash = this.renderTrash.bind(this);
+    }
     createTrash(){
         $bone.setAttribute("id", "bone");
         $bone.setAttribute("src", "./images/bone.png")
         $game.appendChild($bone);
     }
-    renderTrash(){   
-        $bone.style.right = `${this.getTrashPosition().x * 2.5}%`;
-        $bone.style.bottom = `${this.getTrashPosition().y * 10}%`;
-    }
+    renderTrash(){  
+        this.createTrash(); 
+        if ((this.getTrashPosition().x > 0 || this.getTrashPosition().x < 100) || (this.getTrashPosition().y < 100 || this.getTrashPosition().y > -10)){
+            $bone.style.right = `${this.getTrashPosition().x * 2.5}%`;
+            $bone.style.bottom = `${this.getTrashPosition().y * 10}%`;
+        } 
+    }      
 }
 
 
 class FishBone extends Trash {
+    constructor(){
+        super()
+        this.renderTrash = this.renderTrash.bind(this);
+    }
     createTrash(){
         $fishbone.setAttribute("id", "fishbone");
         $fishbone.setAttribute("src", "./images/fishbone.png")
         $game.appendChild($fishbone);
     }
     renderTrash(){
-        // let $fishbone = document.querySelector("#fishbone"); 
+        this.createTrash();
         $fishbone.style.left = `${this.getTrashPosition().x * 2.5}%`;
         $fishbone.style.bottom = `${this.getTrashPosition().y * 10}%`;
+        if (this.position.y < -30){
+           this.position.x = 0;
+           this.position.y = 0;
+        }   
     }
 }

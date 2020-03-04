@@ -1,19 +1,14 @@
-function renderTrashCat() {
-    requestAnimationFrame(renderTrashCat);
-}
-
-function renderTrashDog(){
-    requestAnimationFrame(renderTrashDog);
+function clear(){
+    $game.innerHTML = "";
 }
 
 function renderEverything(){
-    this.bone = new Bone();
-    this.fishbone = new FishBone();
-    renderTrashCat();
-    renderTrashDog();
-    this.bone.createTrash();
-    this.fishbone.createTrash();
+    clear();
+    game.dog.trash.renderTrash()
+    game.cat.trash.renderTrash()
+    game.cat.createCat();
+    game.dog.createDog();
 }
 
 
-renderEverything();
+

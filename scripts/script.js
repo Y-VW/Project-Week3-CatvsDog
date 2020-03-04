@@ -1,21 +1,41 @@
-//Need to write a class for: 1) trash item 2) cat (computer) 3) dog (player) 4) The fence over which it needs to be thrown
+$dog = document.createElement("div")
+$cat = document.createElement("div")
 
-// for clickTimeMouse I need to create a var now that takes the time when mouse is down and a var later that takes the time when mouse is up and substract those two. 
-// i then need to calculate with that var so that it is the right input for the parabola. (need to convert it in a number between -0.08 and -0.15) it is factor a
-
-
-class Dog {
+class Character {
     constructor(){
-        
-        }
-        
+        this.throw = this.throw.bind(this);
+    }
+
+    throw(startClick, stopClick){
+        this.trash.timeBegin = startClick;
+        this.trash.timeStop = stopClick;
+    }
+}
+
+class Cat extends Character {
+    constructor(){
+        super()
+        this.trash = new FishBone();
+    }
+    createCat(){
+        $cat.setAttribute("class", "cat");
+        $game.appendChild($cat);
+    }
+}
+
+class Dog extends Character{
+    constructor(){
+        super();
+        this.trash = new Bone();
+    }
+   createDog(){
+    $dog.setAttribute("class", "dog");
+    $game.appendChild($dog)
+   }
 }
 
 
-class Cat {
-    constructor(){
- 
-        }
+
 
 //     getRandomNumber(min, max) {                                              //not sure if this is necessary
 //         return Math.random() * (max - min) + min;
@@ -31,7 +51,7 @@ class Cat {
 //        $trashCat.style.left = `${trashCat.x * 2.5}%`;
 //        $trashCat.style.bottom = `${trashCat.y * 10}%`;
 //}
-}
+
 
 
 

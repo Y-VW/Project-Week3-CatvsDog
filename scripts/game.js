@@ -6,14 +6,14 @@ class Game {
     constructor(){
         this.dog = new Dog();
         this.cat = new Cat();
-        this.bone = new Bone();
-        this.fishBone = new FishBone();
         this.turn = "Dog";
         this.timeBegin;
         this.timeStop;
     }
     start(){
-        setInterval()
+        setInterval(()=> {
+            renderEverything();
+        }, 50)
     }
     collide(){
 
@@ -32,30 +32,19 @@ class Game {
     switchTurn(){
         let self = this;
         if (this.turn === "Dog"){
-            setInterval(()=> {
-                self.bone.renderTrash();
-            }, 100)
+            this.dog.throw(this.timeBegin, this.timeStop)
             this.turn = "Cat";
         } else if (this.turn === "Cat"){
-            setInterval(()=> {
-                self.fishBone.renderTrash();
-            }, 100)
+            this.cat.throw(this.timeBegin, this.timeStop)
             this.turn = "Dog";
         }
     } 
-    outOfBounds(){
-        let self = this;
-        let $game = document.querySelector("#game");
-        if ((this.bone.x || this.fishBone.x > 100) || (this.bone.bottom || this.fishBone.bottom < 0)){
-            clearInterval(self.switchTurn);
-            
-        }
-    }
 }
 
 let game = new Game()
+game.start();
 game.initMouseEvents();
-game.initMouseEvents();
+
 
 // // this function is checking if both rectangular dom elements are overlapping
 // function isCollide($element1, $element2) {
