@@ -11,12 +11,10 @@ class Game {
         this.timeStop;
     }
     start(){
+        game.initMouseEvents();
         setInterval(()=> {
             renderEverything();
         }, 50)
-    }
-    collide(){
-
     }
     initMouseEvents(){
         let $game = document.querySelector("#game");
@@ -39,11 +37,13 @@ class Game {
             this.turn = "Dog";
         }
     } 
+    collide(){
+
+    }
 }
 
 let game = new Game()
 game.start();
-game.initMouseEvents();
 
 
 // // this function is checking if both rectangular dom elements are overlapping
