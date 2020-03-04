@@ -1,9 +1,8 @@
-// for clickTimeMouse I need to create a var now that takes the time when mouse is down and a var later that takes the time when mouse is up and substract those two. 
-// i then need to calculate with that var so that it is the right input for the parabola. (need to convert it in a number between -0.08 and -0.15) it is factor a
-
 let $game = document.querySelector("#game")
 let $bone = document.createElement("img");
 let $fishbone = document.createElement("img");
+$fishbone.setAttribute("id", "fishbone");
+$bone.setAttribute("id", "bone");
 
 class Trash {
     constructor(direction){
@@ -13,6 +12,7 @@ class Trash {
         }
         this.timeBegin = new Date();
         this.timeStop = new Date();
+        this.collisionCnt = 0;
     }    
     clickTimeMouse(){
         let timeClicked = this.timeStop - this.timeBegin;
@@ -29,21 +29,27 @@ class Trash {
         if(this.timeStop - this.timeBegin <= 5 ) return {x:0,y:0};
         let timePassedInseconds  = (new Date() - this.timeStop)/100;
         this.position.x = timePassedInseconds;
-        this.position.y = this.timeClickedToCoefficient() *Math.pow(this.position.x,2) + 1.6*this.position.x -0.7; //the -0.09 needs to be replaced by a variable that calculates the ClickTimeMouse into a number (between -0.09 and -0.11)
+        this.position.y = this.timeClickedToCoefficient() *Math.pow(this.position.x,2) + 1.6*this.position.x -1;
        return {
            x: this.position.x,
            y: this.position.y  
        }
     }
+    collide(){ 
+        this.collisionCnt++;
+        collisions.innerText = "Collisions: " + this.collisionCnt; 
+    }   
 }
 
 class Bone extends Trash {
     constructor(){
         super()
+        this.collide = this.collide.bind(this);
         this.renderTrash = this.renderTrash.bind(this);
+        this.$cat = $cat;
     }
     createTrash(){
-        $bone.setAttribute("id", "bone");
+
         $bone.setAttribute("src", "./images/bone.png")
         $game.appendChild($bone);
     }
@@ -57,17 +63,30 @@ class Bone extends Trash {
             $bone.style.right = 0;
             $bone.style.bottom = 0;
         }
-    }      
+    }
+    detectCollision(){
+        let $boneRect = $bone.getBoundingClientRect();
+        let $catRect = this.$cat.getBoundingClientRect();
+        if (!(
+            $catRect.top + $catRect.height < $boneRect.top ||
+            $catRect.top > $boneRect.top + $boneRect.height ||
+            $catRect.left + $catRect.width < $boneRect.left ||
+            $catRect.left > $boneRect.left + $boneRect.width
+        )){
+            this.collide();
+        }
+    }     
 }
-
 
 class FishBone extends Trash {
     constructor(){
         super()
+        this.collide = this.collide.bind(this);
         this.renderTrash = this.renderTrash.bind(this);
+        this.$dog = $dog     
     }
     createTrash(){
-        $fishbone.setAttribute("id", "fishbone");
+
         $fishbone.setAttribute("src", "./images/fishbone.png")
         $game.appendChild($fishbone);
     }
@@ -82,4 +101,40 @@ class FishBone extends Trash {
            $fishbone.style.bottom = 0;
         }   
     }
+    detectCollision(){
+        let $fishboneRect = $fishbone.getBoundingClientRect();
+        let $dogRect = this.$dog.getBoundingClientRect();
+        if (!(
+            $dogRect.top + $dogRect.height < $fishboneRect.top ||
+            $dogRect.top > $fishboneRect.top + $fishboneRect.height ||
+            $dogRect.left + $dogRect.width < $fishboneRect.left ||
+            $dogRect.left > $fishboneRect.left + $fishboneRect.width
+        )){
+            this.collide();
+        }
+    } 
 }
+
+
+
+
+// this.$fishbone = document.getElementById("fishbone");
+// this.$bone = document.getElementById("bone")
+
+
+// aSquare = {
+//     x: 1,
+//     y: 1,
+//     width: 3,
+//     height: 3
+// }
+
+// function collide(item, square){
+//     if ((item.x >= square.x && item.x <= square.x + square.width) 
+//     && (item.y >= square.y && item.y <= square.y + square.height)){
+//         return true
+//     }
+//     else {
+//         return false
+//     }
+// }

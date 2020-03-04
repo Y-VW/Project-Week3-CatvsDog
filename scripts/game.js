@@ -1,6 +1,6 @@
 // need to write a game class with a function to start the game, to restart (play again), collision
 // need to check how to write whose turn it is, need to check how to check who wins and how it restarts
-
+var collisions = document.getElementById("healthbar");
 
 class Game {
     constructor(){
@@ -9,12 +9,16 @@ class Game {
         this.turn = "Dog";
         this.timeBegin;
         this.timeStop;
+
     }
     start(){
         game.initMouseEvents();
         setInterval(()=> {
             renderEverything();
         }, 50)
+        // setInterval(() => {
+        //     this.detectCollision();
+        //  }, 100);
     }
     initMouseEvents(){
         let $game = document.querySelector("#game");
@@ -36,16 +40,23 @@ class Game {
             this.cat.throw(this.timeBegin, this.timeStop)
             this.turn = "Dog";
         }
-    } 
-    collide(){
-
     }
+
 }
 
 let game = new Game()
 game.start();
 
-
+//isCollide($player, $obstacle) {
+//     const $playerRect = $player.getBoundingClientRect();
+//     const $obstacleRect = $obstacle.getBoundingClientRect();
+//     return !(
+//         $playerRect.top + $playerRect.height < $obstacleRect.top ||
+//         $playerRect.top > $obstacleRect.top + $obstacleRect.height ||
+//         $playerRect.left + $playerRect.width < $obstacleRect.left ||
+//         $playerRect.left > $obstacleRect.left + $obstacleRect.width
+//     );
+// }
 // // this function is checking if both rectangular dom elements are overlapping
 // function isCollide($element1, $element2) {
 //     var a = {
@@ -79,19 +90,3 @@ game.start();
 //     // collision detected!
 // }
 
-// aSquare = {
-//     x: 1,
-//     y: 1,
-//     width: 3,
-//     height: 3
-// }
-
-// function collide(item, square){
-//     if ((item.x >= square.x && item.x <= square.x + square.width) 
-//     && (item.y >= square.y && item.y <= square.y + square.height)){
-//         return true
-//     }
-//     else {
-//         return false
-//     }
-// }

@@ -8,6 +8,8 @@ function renderEverything(){
     game.cat.trash.renderTrash()
     game.cat.createCat();
     game.dog.createDog();
+    game.cat.trash.detectCollision();
+    game.dog.trash.detectCollision();
 }
 
 
