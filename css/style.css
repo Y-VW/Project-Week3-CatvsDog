@@ -69,6 +69,9 @@ body {
 }
 
 .modal-start {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
     position: fixed; 
     z-index: 1; 
     left: 0;
@@ -81,21 +84,22 @@ body {
     background-position: center;
 }
 #startbutton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 20%;
+    margin-bottom: 240px;
+    color: white;
+    background-color: black;
+    font-size: 20px;
 }
 
-.modal-win {
+#modal-dogwin, #modal-catwin{
     display: none; 
     position: fixed; 
     z-index: 1;
     left: 0;
-    top: 0;
+    top: 0; 
     width: 100%; 
     height: 100%;
     background-color: gray;
-     
 }
 
 .modal-dogwin {
@@ -110,25 +114,19 @@ body {
     background-position: center;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-color: gray;
     margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
+    padding-top: 50px;
     width: 70%;
     height: 60%;
     font-size: 100px;
     color: white;
   }
 
-.close {
-    color: #aaaaaa;
-    float: bottom;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-.close:hover, .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
+#restart1, #restart2 {
+    color: white;
+    background-color:chocolate;
+    font-size: 20px;
+}

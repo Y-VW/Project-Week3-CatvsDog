@@ -2,6 +2,8 @@ const modalCatWin = document.getElementById("modal-catwin");
 const modalDogWin = document.getElementById("modal-dogwin");
 const modalStart = document.getElementById("modal-start");
 $startbutton = document.getElementById("startbutton");
+const restartDogWin = document.getElementById("restart1");
+const restartCatWin = document.getElementById("restart2");
 
 class Game {
     constructor() {
@@ -57,6 +59,14 @@ class Game {
                 modalDogWin.style.display = "block";
         }
     }
+    restartGame(){
+        if (modalCatWin.style.display === "block" || modalDogWin.style.display === "block"){     
+            this.cat.health = 20;
+            this.dog.health = 20;
+            collisionsDog.innerText = `Health Dog = ${this.dog.health}`;
+            collisionsCat.innerText = `Health Cat =  ${this.cat.health}`;
+        }
+    }
 }
 
 let game = new Game()
@@ -66,4 +76,13 @@ $startbutton.addEventListener("click", function(){
     game.start();
 })
 
+restartDogWin.addEventListener("click", function(){
+    game.restartGame();
+    modalDogWin.style.display = "none";
 
+})
+
+restartCatWin.addEventListener("click", function(){
+    game.restartGame();
+    modalCatWin.style.display = "none";
+})
