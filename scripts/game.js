@@ -47,18 +47,16 @@ class Game {
     }
     collideDog() {
        this.dog.health--;
-       let widthProgress = (this.dog.health / 20)*100;
+       let widthProgress = Math.floor((this.dog.health / 20)*100);
        $progressBarDog.innerHTML = `${widthProgress}%`;
        $progressBarDog.style = `width:${widthProgress}%`;
-        // collisionsDog.innerText = `Health Dog = ${this.dog.health}`;
         document.querySelector("#boingsound").play();   
     }
     collideCat(){
         this.cat.health--;
-        let widthProgress = (this.dog.health / 20)*100;
+        let widthProgress = Math.floor((this.dog.health / 20)*100);
         $progressBarCat.innerHTML = `${widthProgress}%`;
         $progressBarCat.style = `width:${widthProgress}%`;
-        // collisionsCat.innerText = `Health Cat =  ${this.cat.health}`;
         document.querySelector("#boingsound").play();
     }
     gameOver(){
