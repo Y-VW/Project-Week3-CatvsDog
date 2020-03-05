@@ -15,13 +15,23 @@ body {
     align-items: center;
 }
 
-#health-dog, #health-cat {
+#healthbar-dog, #healthbar-cat {
     display: flex;
-    justify-content: center;
+    align-items: center;
     color: white;
-    font-size: 40px;
-    font-weight: bold;
     width: 50%;
+}
+
+h1 {
+    font-size: 4rem;
+    padding: 0 1em;
+    font-weight: bold;
+}
+
+.progress {
+    height: 2.5rem;
+    width: 18rem; 
+    font-weight: bold;
 }
 
 #game {

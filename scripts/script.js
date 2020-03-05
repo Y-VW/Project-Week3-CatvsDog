@@ -1,7 +1,7 @@
 let $dog = document.createElement("div")
 let $cat = document.createElement("div")
-var collisionsDog = document.getElementById("health-dog");
-var collisionsCat = document.getElementById("health-cat");
+// var collisionsDog = document.getElementById("health-dog");
+// var collisionsCat = document.getElementById("health-cat");
 
 class Character {
     constructor() {
