@@ -1,13 +1,27 @@
+@import  url(https://fonts.googleapis.com/css?family=Open+Sans:300,600);
+
 body {
     margin: 0;
-    font-size: 16px;
     background-color: darkgray;
+    font-family: 'Open Sans';
   }
-  
+
 #healthbar {
     width: 1200px;
     height: 200px;
     background-color: chocolate;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#health-dog, #health-cat {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    width: 50%;
 }
 
 #game {
@@ -54,3 +68,67 @@ body {
     right: 5%;
 }
 
+.modal-start {
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-image: url(../images/startscreen\ no\ button.png);
+    background-repeat: no-repeat;
+    background-color: chocolate;
+    background-position: center;
+}
+#startbutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-win {
+    display: none; 
+    position: fixed; 
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    background-color: gray;
+     
+}
+
+.modal-dogwin {
+    background-image: url(../images/background-empty.jpg);
+}
+.modal-catwin {
+    background-image: url(../images/background-empty.jpg);
+}
+
+.modal-dogwin, .modal-catwin {
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    background-color: gray;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%;
+    height: 60%;
+    font-size: 100px;
+    color: white;
+  }
+
+.close {
+    color: #aaaaaa;
+    float: bottom;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+.close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }

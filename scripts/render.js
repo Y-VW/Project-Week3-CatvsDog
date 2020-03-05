@@ -10,6 +10,7 @@ function renderEverything(){
     game.dog.createDog();
     game.cat.trash.detectCollision();
     game.dog.trash.detectCollision();
+    game.gameOver();
 }
 
 

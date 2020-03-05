@@ -1,16 +1,20 @@
-// need to write a game class with a function to start the game, to restart (play again), collision
-// need to check how to write whose turn it is, need to check how to check who wins and how it restarts
+const modalCatWin = document.getElementById("modal-catwin");
+const modalDogWin = document.getElementById("modal-dogwin");
+const modalStart = document.getElementById("modal-start");
+$startbutton = document.getElementById("startbutton");
 
 class Game {
     constructor() {
         this.dog = new Dog();
         this.cat = new Cat();
+        this.fishBone = new FishBone();
+        this.bone = new Bone();
         this.turn = "Dog";
         this.timeBegin;
         this.timeStop;
     }
     start() {
-        game.initMouseEvents();
+        this.initMouseEvents();
         setInterval(() => {
             renderEverything();
         }, 50)
@@ -36,8 +40,30 @@ class Game {
             this.turn = "Dog";
         }
     }
+    collideDog() {
+       this.dog.health--;
+        collisionsDog.innerText = `Health Dog = ${this.dog.health}`;
+        document.querySelector("#boingsound").play();   
+    }
+    collideCat(){
+        this.cat.health--;
+        collisionsCat.innerText = `Health Cat =  ${this.cat.health}`;
+        document.querySelector("#boingsound").play();
+    }
+    gameOver(){
+        if (this.dog.health <= 0){        
+                modalCatWin.style.display = "block";
+        } else if (this.cat.health <= 0){
+                modalDogWin.style.display = "block";
+        }
+    }
 }
 
 let game = new Game()
-game.start();
+
+$startbutton.addEventListener("click", function(){
+    modalStart.style.display = "none";
+    game.start();
+})
+
 

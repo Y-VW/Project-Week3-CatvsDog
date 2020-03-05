@@ -1,10 +1,12 @@
 let $dog = document.createElement("div")
 let $cat = document.createElement("div")
-var collisions = document.getElementById("healthbar");
+var collisionsDog = document.getElementById("health-dog");
+var collisionsCat = document.getElementById("health-cat");
 
 class Character {
     constructor() {
         this.throw = this.throw.bind(this);
+        this.health = 20;
     }
     throw(startClick, stopClick) {
         this.trash.timeBegin = startClick;
@@ -16,15 +18,10 @@ class Cat extends Character {
     constructor() {
         super()
         this.trash = new FishBone();
-        this.health = 20;
     }
     createCat() {
         $cat.setAttribute("class", "cat");
         $game.appendChild($cat);
-    }
-    collide() {
-        this.health--;
-        collisions.innerText = "Health Cat = " + this.health;
     }
 }
 
@@ -32,15 +29,10 @@ class Dog extends Character {
     constructor() {
         super();
         this.trash = new Bone();
-        this.health = 20;
     }
-    createDog() {
+    createDog() {   
         $dog.setAttribute("class", "dog");
         $game.appendChild($dog)
-    }
-    collide() {
-        this.health--;
-        collisions.innerText = "Health Dog = " + this.health;
     }
 }
 

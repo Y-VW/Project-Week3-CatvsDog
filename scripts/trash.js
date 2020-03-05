@@ -34,7 +34,6 @@ class Trash {
             y: this.position.y
         }
     }
-
 }
 
 class Bone extends Trash {
@@ -43,7 +42,6 @@ class Bone extends Trash {
         this.$cat = $cat;
     }
     createTrash() {
-
         $bone.setAttribute("src", "./images/bone.png")
         $game.appendChild($bone);
     }
@@ -67,7 +65,7 @@ class Bone extends Trash {
             $catRect.left + $catRect.width < $boneRect.left ||
             $catRect.left > $boneRect.left + $boneRect.width
         )) {
-            game.cat.collide();
+            game.collideCat();
         }
     }
 }
@@ -75,7 +73,6 @@ class Bone extends Trash {
 class FishBone extends Trash {
     constructor() {
         super()
-        // this.collide = this.collide.bind(this);
         this.renderTrash = this.renderTrash.bind(this);
         this.$dog = $dog
     }
@@ -104,7 +101,7 @@ class FishBone extends Trash {
             $dogRect.left + $dogRect.width < $fishboneRect.left ||
             $dogRect.left > $fishboneRect.left + $fishboneRect.width
         )) {
-            game.dog.collide();
+            game.collideDog();
         }
     }
 }
