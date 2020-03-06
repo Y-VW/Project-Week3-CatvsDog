@@ -16,14 +16,13 @@ class Game {
         this.bone = new Bone();
         this.turn = "Dog";
         this.timeBegin;
-        this.timeStop;       
+        this.timeStop;
     }
     start() {
         this.initMouseEvents();
         setInterval(() => {
             renderEverything();
         }, 50)
-        
     }
     initMouseEvents() {
         let $game = document.querySelector("#game");
@@ -47,33 +46,33 @@ class Game {
         }
     }
     collideDog() {
-       this.dog.health--;
-       let widthProgress = Math.floor((this.dog.health / 20)*100);
-       $progressBarDog.innerHTML = `${widthProgress}%`;
-       $progressBarDog.style = `width:${widthProgress}%`;
-        document.querySelector("#boingsound").play();   
+        this.dog.health--;
+        let widthProgress = Math.floor((this.dog.health / 20) * 100);
+        $progressBarDog.innerHTML = `${widthProgress}%`;
+        $progressBarDog.style = `width:${widthProgress}%`;
+        document.querySelector("#boingsound").play();
     }
-    collideCat(){
+    collideCat() {
         this.cat.health--;
-        let widthProgress = Math.floor((this.dog.health / 20)*100);
+        let widthProgress = Math.floor((this.dog.health / 20) * 100);
         $progressBarCat.innerHTML = `${widthProgress}%`;
         $progressBarCat.style = `width:${widthProgress}%`;
         document.querySelector("#boingsound").play();
     }
-    gameOver(){
-        if (this.dog.health <= 0){        
-                modalCatWin.style.display = "block";
-                document.querySelector("#succes").play();    
-        } else if (this.cat.health <= 0){
-                modalDogWin.style.display = "block";
-                document.querySelector("#succes").play(); 
+    gameOver() {
+        if (this.dog.health <= 0) {
+            modalCatWin.style.display = "block";
+            document.querySelector("#succes").play();
+        } else if (this.cat.health <= 0) {
+            modalDogWin.style.display = "block";
+            document.querySelector("#succes").play();
         }
     }
-    restartGame(){
-        if (modalCatWin.style.display === "block" || modalDogWin.style.display === "block"){     
+    restartGame() {
+        if (modalCatWin.style.display === "block" || modalDogWin.style.display === "block") {
             this.cat.health = 20;
             this.dog.health = 20;
-            let widthProgress = (this.dog.health / 20)*100;
+            let widthProgress = (this.dog.health / 20) * 100;
             $progressBarCat.innerHTML = `${widthProgress}%`;
             $progressBarCat.style = `width:${widthProgress}%`;
             $progressBarDog.innerHTML = `${widthProgress}%`;
@@ -84,18 +83,18 @@ class Game {
 
 let game = new Game()
 
-$startbutton.addEventListener("click", function(){
+$startbutton.addEventListener("click", function () {
     modalStart.style.display = "none";
     game.start();
 })
 
-restartDogWin.addEventListener("click", function(){
+restartDogWin.addEventListener("click", function () {
     game.restartGame();
     modalDogWin.style.display = "none";
 
 })
 
-restartCatWin.addEventListener("click", function(){
+restartCatWin.addEventListener("click", function () {
     game.restartGame();
     modalCatWin.style.display = "none";
 })
