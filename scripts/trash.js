@@ -42,7 +42,7 @@ class Bone extends Trash {
         this.$cat = $cat;
     }
     createTrash() {
-        $bone.setAttribute("src", "./images/bone.png")
+        $bone.setAttribute("src", "../images/bone.png")
         $game.appendChild($bone);
     }
     renderTrash() {
@@ -78,7 +78,7 @@ class FishBone extends Trash {
     }
     createTrash() {
 
-        $fishbone.setAttribute("src", "./images/fishbone.png")
+        $fishbone.setAttribute("src", "../images/fishbone.png")
         $game.appendChild($fishbone);
     }
     renderTrash() {
