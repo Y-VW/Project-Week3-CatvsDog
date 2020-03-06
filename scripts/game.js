@@ -63,8 +63,10 @@ class Game {
     gameOver(){
         if (this.dog.health <= 0){        
                 modalCatWin.style.display = "block";
+                document.querySelector("#succes").play();    
         } else if (this.cat.health <= 0){
                 modalDogWin.style.display = "block";
+                document.querySelector("#succes").play(); 
         }
     }
     restartGame(){

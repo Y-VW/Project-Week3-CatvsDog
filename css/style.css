@@ -2,9 +2,27 @@
 
 body {
     margin: 0;
-    background-color: darkgray;
+    background-color:chocolate;
     font-family: 'Open Sans';
   }
+
+#wrapper {
+    display: flex;
+}
+
+#instructions {
+    font-size: 30px;
+    width: 200px;
+    align-content: center;
+    color: white;
+}
+
+#instructions h2 {
+    font-size: 45px;
+    font-weight: bold;
+    padding: 20px 0;
+    margin: 10px 0px;
+}
 
 #healthbar {
     width: 1050px;

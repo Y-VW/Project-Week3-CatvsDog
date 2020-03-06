@@ -5,56 +5,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=§, initial-scale=1.0">
     <title>Cat vs Dog</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <div id="modal-start" class="modal-start">
-        <button type="button" id="startbutton" class="btn btn-lg">START GAME</button>
-    </div>
-    <div id="modal-dogwin">
-        <div class="modal-dogwin">
-            <img src="images/dogwin no bg.png" alt="dogwin">
-            <p>Dog wins!</p>
-            <button type="button" id="restart1" class="btn btn-lg">PLAY AGAIN</button>
-        </div>
-    </div>
-    <div id="modal-catwin">
-        <div class="modal-catwin">
-            <img src="./images/catwin no bg.png" alt="catwin">        
-            <p>Cat wins!</p>
-            <button type="button" id="restart2" class="btn btn-lg">PLAY AGAIN</button>
-        </div>
-    </div>
-        
-    <div id="healthbar">
-        <div id="healthbar-cat">
-            <h1>Cat</h1>
-        <div class="progress">
-            <div  id="progress-bar1" class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="20">100%</div>
-          </div>
-        </div>
-        <div id="healthbar-dog">
-            <h1>Dog</h1>
-        <div class="progress">
-            <div id="progress-bar2"class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="20">100%</div>
-          </div>
-        </div>
+    <div id="wrapper">
+        <div class="gamesection">
+            <div id="modal-start" class="modal-start">
+                <button type="button" id="startbutton" class="btn btn-lg">START GAME</button>
             </div>
-    <div id="game">
+            <div id="modal-dogwin">
+                <div class="modal-dogwin">
+                    <img src="images/dogwin no bg.png" alt="dogwin">
+                    <p>Dog wins!</p>
+                    <button type="button" id="restart1" class="btn btn-lg">PLAY AGAIN</button>
+                </div>
+            </div>
+            <div id="modal-catwin">
+                <div class="modal-catwin">
+                    <img src="./images/catwin no bg.png" alt="catwin">
+                    <p>Cat wins!</p>
+                    <button type="button" id="restart2" class="btn btn-lg">PLAY AGAIN</button>
+                </div>
+            </div>
 
+            <div id="healthbar">
+                <div id="healthbar-cat">
+                    <h1>Cat</h1>
+                    
+                    <div class="progress">
+                        <div id="progress-bar1" class="progress-bar" role="progressbar" style="width: 100%;"
+                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="20">100%</div>
+                    </div>
+                </div>
+                <div id="healthbar-dog">
+                    <h1>Dog</h1>
+                    <div class="progress">
+                        <div id="progress-bar2" class="progress-bar" role="progressbar" style="width: 100%;"
+                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="20">100%</div>
+                    </div>
+                </div>
+            </div>
+            <div id="game">
+
+            </div>
+        </div>
+        <div id="instructions">
+            <h2>Instructions</h2>
+            <p>The cat and dog are in an everlasting feud</p>
+            <p>1. To throw trash, you can press on the player</p>
+            <p>2. The first one to kill the other player wins!</p>
+        </div>
     </div>
+
+
 
 
     <audio id="boingsound" src="./sounds/boing-edit.mp3"></audio>
+    <audio id="succes" src="./sounds/succes.mp3"></audio>
     <script src="./scripts/trash.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/game.js"></script>
     <script src="./scripts/render.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 
 </body>
 
