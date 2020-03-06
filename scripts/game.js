@@ -38,13 +38,19 @@ class Game {
     switchTurn() {
         let self = this;
         if (this.turn === "Dog") {
-            this.dog.throw(this.timeBegin, this.timeStop)
-            this.turn = "Cat";
+            if (Math.random() > 0.6){
+                document.querySelector("#woof").play();
+            }
+            this.dog.throw(this.timeBegin, this.timeStop);
+            this.turn = "Cat";       
         } else if (this.turn === "Cat") {
-            this.cat.throw(this.timeBegin, this.timeStop)
-            this.turn = "Dog";
+            if (Math.random() > 0.6){
+                document.querySelector("#meow").play();
+            }
+            this.cat.throw(this.timeBegin, this.timeStop);
+            this.turn = "Dog";    
         }
-    }
+    }       
     collideDog() {
         this.dog.health--;
         let widthProgress = Math.floor((this.dog.health / 20) * 100);

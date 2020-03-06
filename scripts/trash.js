@@ -49,7 +49,7 @@ class Bone extends Trash {
         this.createTrash();
         $bone.style.right = `${this.getTrashPosition().x * 3.5}%`;
         $bone.style.bottom = `${this.getTrashPosition().y * 8}%`;
-        if ((this.position.x < 0 || this.position.x > 100) || this.position.y < -30) {
+        if ((this.position.x < 0 || this.position.x > 100) || this.position.y < -10) {
             this.position.x = 0;
             this.position.y = 0;
             $bone.style.right = 0;
@@ -85,7 +85,7 @@ class FishBone extends Trash {
         this.createTrash();
         $fishbone.style.left = `${this.getTrashPosition().x * 3.5}%`;
         $fishbone.style.bottom = `${this.getTrashPosition().y * 8}%`;
-        if ((this.position.x < 0 || this.position.x > 100) || this.position.y < -30) {
+        if ((this.position.x < 0 || this.position.x > 100) || this.position.y < -10) {
             this.position.x = 0;
             this.position.y = 0;
             $fishbone.style.left = 0;
