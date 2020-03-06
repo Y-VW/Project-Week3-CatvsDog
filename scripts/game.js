@@ -16,13 +16,14 @@ class Game {
         this.bone = new Bone();
         this.turn = "Dog";
         this.timeBegin;
-        this.timeStop;
+        this.timeStop;       
     }
     start() {
         this.initMouseEvents();
         setInterval(() => {
             renderEverything();
         }, 50)
+        
     }
     initMouseEvents() {
         let $game = document.querySelector("#game");
